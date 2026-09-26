@@ -1,0 +1,238 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 560" width="100%" height="100%">
+  <defs>
+    <!-- Board Gradients -->
+    <linearGradient id="darkSquare" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E1624" />
+      <stop offset="100%" stop-color="#070A10" />
+    </linearGradient>
+    <linearGradient id="lightSquare" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E2A3E" />
+      <stop offset="100%" stop-color="#141E2E" />
+    </linearGradient>
+    <linearGradient id="boardFrame" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" />
+      <stop offset="50%" stop-color="#1F2A3C" />
+      <stop offset="100%" stop-color="#00E5FF" />
+    </linearGradient>
+
+    <!-- Piece Highlights -->
+    <filter id="goldPieceGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="cyanPieceGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    .board-title { font-family: 'Fira Code', monospace; font-size: 16px; font-weight: 900; fill: #D4AF37; letter-spacing: 3px; }
+    .board-sub { font-family: 'Fira Code', monospace; font-size: 11px; fill: #8B949E; }
+    .rank-file-label { font-family: 'Fira Code', monospace; font-size: 12px; font-weight: bold; fill: #5865F2; }
+    
+    .piece-group { cursor: pointer; transition: transform 0.3s ease, filter 0.3s ease; }
+    .piece-group:hover { transform: scale(1.15); filter: drop-shadow(0 0 12px #00FF9D); }
+    
+    .piece-label { font-family: 'Fira Code', monospace; font-size: 10px; font-weight: bold; fill: #FFFFFF; opacity: 0.9; }
+    .nav-hint { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; fill: #00FF9D; letter-spacing: 1px; }
+  </style>
+
+  <!-- Container Background -->
+  <rect width="850" height="560" rx="8" fill="#05080E" stroke="rgba(212, 175, 55, 0.4)" stroke-width="1.5"/>
+
+  <!-- Top Navigation Header -->
+  <g transform="translate(35, 35)">
+    <text class="board-title" filter="url(#goldPieceGlow)">CHESS ENDGAME NAVIGATION MATRIX</text>
+    <text y="22" class="board-sub">&gt; SELECT A PIECE TO ENGAGE SPECIFIC PROFILE DOMAIN</text>
+  </g>
+
+  <!-- 8x8 Chessboard Grid (Centered at X: 45, Y: 80, Size: 400x400) -->
+  <g transform="translate(45, 80)">
+    <!-- Board Outer Wooden/Metal Border -->
+    <rect x="-12" y="-12" width="424" height="424" rx="6" fill="url(#boardFrame)" />
+    <rect x="-4" y="-4" width="408" height="408" fill="#070A10" />
+
+    <!-- 64 Squares Loop Visualization -->
+    <!-- Rank 8 to Rank 1, File A to File H -->
+    <!-- Squares 50x50 -->
+    <!-- Row 0 (Rank 8) -->
+    <rect x="0" y="0" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="50" y="0" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="100" y="0" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="150" y="0" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="200" y="0" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="250" y="0" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="300" y="0" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="350" y="0" width="50" height="50" fill="url(#darkSquare)"/>
+
+    <!-- Row 1 (Rank 7) -->
+    <rect x="0" y="50" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="50" y="50" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="100" y="50" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="150" y="50" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="200" y="50" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="250" y="50" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="300" y="50" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="350" y="50" width="50" height="50" fill="url(#lightSquare)"/>
+
+    <!-- Row 2 (Rank 6) -->
+    <rect x="0" y="100" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="50" y="100" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="100" y="100" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="150" y="100" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="200" y="100" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="250" y="100" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="300" y="100" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="350" y="100" width="50" height="50" fill="url(#darkSquare)"/>
+
+    <!-- Row 3 (Rank 5) -->
+    <rect x="0" y="150" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="50" y="150" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="100" y="150" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="150" y="150" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="200" y="150" width="50" height="50" fill="#2E3C22"/> <!-- Highlight e5 -->
+    <rect x="250" y="150" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="300" y="150" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="350" y="150" width="50" height="50" fill="url(#lightSquare)"/>
+
+    <!-- Row 4 (Rank 4) -->
+    <rect x="0" y="200" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="50" y="200" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="100" y="200" width="50" height="50" fill="#3A3818"/> <!-- Highlight c4 -->
+    <rect x="150" y="200" width="50" height="50" fill="#463B15"/> <!-- Highlight d4 -->
+    <rect x="200" y="200" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="250" y="200" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="300" y="200" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="350" y="200" width="50" height="50" fill="url(#darkSquare)"/>
+
+    <!-- Row 5 (Rank 3) -->
+    <rect x="0" y="250" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="50" y="250" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="100" y="250" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="150" y="250" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="200" y="250" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="250" y="250" width="50" height="50" fill="#3D2912"/> <!-- Highlight f3 -->
+    <rect x="300" y="250" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="350" y="250" width="50" height="50" fill="url(#lightSquare)"/>
+
+    <!-- Row 6 (Rank 2) -->
+    <rect x="0" y="300" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="50" y="300" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="100" y="300" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="150" y="300" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="200" y="300" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="250" y="300" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="300" y="300" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="350" y="300" width="50" height="50" fill="url(#darkSquare)"/>
+
+    <!-- Row 7 (Rank 1) -->
+    <rect x="0" y="350" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="50" y="350" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="100" y="350" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="150" y="350" width="50" height="50" fill="#143438"/> <!-- Highlight d1 -->
+    <rect x="200" y="350" width="50" height="50" fill="#382C14"/> <!-- Highlight e1 -->
+    <rect x="250" y="350" width="50" height="50" fill="url(#lightSquare)"/>
+    <rect x="300" y="350" width="50" height="50" fill="url(#darkSquare)"/>
+    <rect x="350" y="350" width="50" height="50" fill="url(#lightSquare)"/>
+
+    <!-- Board Coordinates Labels -->
+    <!-- Files a-h -->
+    <text x="25" y="416" class="rank-file-label" text-anchor="middle">a</text>
+    <text x="75" y="416" class="rank-file-label" text-anchor="middle">b</text>
+    <text x="125" y="416" class="rank-file-label" text-anchor="middle">c</text>
+    <text x="175" y="416" class="rank-file-label" text-anchor="middle">d</text>
+    <text x="225" y="416" class="rank-file-label" text-anchor="middle">e</text>
+    <text x="275" y="416" class="rank-file-label" text-anchor="middle">f</text>
+    <text x="325" y="416" class="rank-file-label" text-anchor="middle">g</text>
+    <text x="375" y="416" class="rank-file-label" text-anchor="middle">h</text>
+
+    <!-- Endgame Active Tactical Pieces -->
+    <!-- 1. KING on e1 (200, 350) -> Anchor #king -->
+    <g class="piece-group" transform="translate(200, 350)">
+      <circle cx="25" cy="25" r="20" fill="rgba(212, 175, 55, 0.3)" stroke="#D4AF37" stroke-width="2" filter="url(#goldPieceGlow)"/>
+      <text x="25" y="32" font-size="24" text-anchor="middle" fill="#FFD700">♔</text>
+    </g>
+
+    <!-- 2. QUEEN on d4 (150, 200) -> Anchor #chess -->
+    <g class="piece-group" transform="translate(150, 200)">
+      <circle cx="25" cy="25" r="20" fill="rgba(212, 175, 55, 0.3)" stroke="#D4AF37" stroke-width="2" filter="url(#goldPieceGlow)"/>
+      <text x="25" y="32" font-size="24" text-anchor="middle" fill="#FFD700">♕</text>
+    </g>
+
+    <!-- 3. BISHOP on c4 (100, 200) -> Anchor #ai-security -->
+    <g class="piece-group" transform="translate(100, 200)">
+      <circle cx="25" cy="25" r="20" fill="rgba(0, 229, 255, 0.3)" stroke="#00E5FF" stroke-width="2" filter="url(#cyanPieceGlow)"/>
+      <text x="25" y="32" font-size="24" text-anchor="middle" fill="#00E5FF">♗</text>
+    </g>
+
+    <!-- 4. ROOK on d1 (150, 350) -> Anchor #defense -->
+    <g class="piece-group" transform="translate(150, 350)">
+      <circle cx="25" cy="25" r="20" fill="rgba(0, 255, 157, 0.3)" stroke="#00FF9D" stroke-width="2" filter="url(#cyanPieceGlow)"/>
+      <text x="25" y="32" font-size="24" text-anchor="middle" fill="#00FF9D">♖</text>
+    </g>
+
+    <!-- 5. KNIGHT on f3 (250, 250) -> Anchor #running -->
+    <g class="piece-group" transform="translate(250, 250)">
+      <circle cx="25" cy="25" r="20" fill="rgba(255, 149, 0, 0.3)" stroke="#FF9500" stroke-width="2"/>
+      <text x="25" y="32" font-size="24" text-anchor="middle" fill="#FF9500">♘</text>
+    </g>
+
+    <!-- 6. PAWN on e5 (200, 150) -> Anchor #growth -->
+    <g class="piece-group" transform="translate(200, 150)">
+      <circle cx="25" cy="25" r="20" fill="rgba(230, 237, 243, 0.3)" stroke="#E6EDF3" stroke-width="2"/>
+      <text x="25" y="32" font-size="24" text-anchor="middle" fill="#FFFFFF">♙</text>
+    </g>
+  </g>
+
+  <!-- Right Navigation Index Legend Box (X: 475, Y: 80, Width: 340) -->
+  <g transform="translate(475, 80)">
+    <rect width="340" height="424" rx="6" fill="rgba(10, 15, 25, 0.95)" stroke="rgba(212, 175, 55, 0.3)" stroke-width="1.5"/>
+
+    <text x="20" y="30" class="board-title" font-size="13">NAVIGATION MATRIX INDEX</text>
+    <line x1="20" y1="40" x2="320" y2="40" stroke="rgba(0, 229, 255, 0.2)" stroke-width="1"/>
+
+    <!-- Item 1: KING -->
+    <g transform="translate(20, 60)">
+      <text font-size="20" fill="#FFD700">♔</text>
+      <text x="35" y="15" font-family="Fira Code" font-weight="bold" font-size="12" fill="#FFD700">KING [e1] → ABOUT / IDENTITY</text>
+      <text x="35" y="32" class="board-sub">Maanas Sri Udbhav Maddula profile</text>
+    </g>
+
+    <!-- Item 2: QUEEN -->
+    <g transform="translate(20, 120)">
+      <text font-size="20" fill="#FFD700">♕</text>
+      <text x="35" y="15" font-family="Fira Code" font-weight="bold" font-size="12" fill="#FFD700">QUEEN [d4] → CHESS JOURNEY</text>
+      <text x="35" y="32" class="board-sub">10+ Yrs, 2x National, 2100+ Peak</text>
+    </g>
+
+    <!-- Item 3: BISHOP -->
+    <g transform="translate(20, 180)">
+      <text font-size="20" fill="#00E5FF">♗</text>
+      <text x="35" y="15" font-family="Fira Code" font-weight="bold" font-size="12" fill="#00E5FF">BISHOP [c4] → AI SECURITY</text>
+      <text x="35" y="32" class="board-sub">PromptShield, AISEC CaseFiles</text>
+    </g>
+
+    <!-- Item 4: ROOK -->
+    <g transform="translate(20, 240)">
+      <text font-size="20" fill="#00FF9D">♖</text>
+      <text x="35" y="15" font-family="Fira Code" font-weight="bold" font-size="12" fill="#00FF9D">ROOK [d1] → DEFENSE / SOC</text>
+      <text x="35" y="32" class="board-sub">Blue Team, KC7, Wazuh, Wireshark</text>
+    </g>
+
+    <!-- Item 5: KNIGHT -->
+    <g transform="translate(20, 300)">
+      <text font-size="20" fill="#FF9500">♘</text>
+      <text x="35" y="15" font-family="Fira Code" font-weight="bold" font-size="12" fill="#FF9500">KNIGHT [f3] → RUNNING</text>
+      <text x="35" y="32" class="board-sub">Sub-26m 5K Athletic Discipline</text>
+    </g>
+
+    <!-- Item 6: PAWN -->
+    <g transform="translate(20, 360)">
+      <text font-size="20" fill="#FFFFFF">♙</text>
+      <text x="35" y="15" font-family="Fira Code" font-weight="bold" font-size="12" fill="#FFFFFF">PAWN [e5] → GROWTH / DISCIPLINE</text>
+      <text x="35" y="32" class="board-sub">4x Donor, Environmental Impact</text>
+    </g>
+  </g>
+</svg>

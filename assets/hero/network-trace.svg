@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060911" />
+      <stop offset="100%" stop-color="#0A0E18" />
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00E5FF" />
+      <stop offset="50%" stop-color="#FF3B30" />
+      <stop offset="100%" stop-color="#00FF9D" />
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes pulsePacket {
+      0% { stroke-dashoffset: 400; }
+      100% { stroke-dashoffset: 0; }
+    }
+    .flow-line { stroke: url(#lineGrad); stroke-width: 2.5; stroke-dasharray: 10, 10; animation: pulsePacket 4s linear infinite; }
+    .trace-title { font-family: 'Fira Code', monospace; font-size: 13px; font-weight: 700; fill: #00E5FF; letter-spacing: 2px; }
+    .node-text { font-family: 'Fira Code', monospace; font-size: 11px; font-weight: 600; fill: #FFFFFF; }
+    .sub-text { font-family: 'Fira Code', monospace; font-size: 10px; fill: #8B949E; }
+  </style>
+
+  <rect width="850" height="320" rx="8" fill="url(#bgGrad4)" />
+  <rect x="15" y="15" width="820" height="290" rx="6" fill="none" stroke="rgba(0, 229, 255, 0.2)" stroke-width="1.5" />
+
+  <!-- Header -->
+  <text x="35" y="45" class="trace-title">FORENSIC NETWORK TRACE // TELEMETRY CORRELATION</text>
+  <line x1="35" y1="55" x2="815" y2="55" stroke="rgba(0, 229, 255, 0.15)" stroke-width="1"/>
+
+  <!-- Trace Nodes (4 Stages) -->
+  <!-- Stage 1: Unknown IP -->
+  <g transform="translate(70, 150)">
+    <circle cx="0" cy="0" r="32" fill="rgba(0, 229, 255, 0.1)" stroke="#00E5FF" stroke-width="2"/>
+    <text x="0" y="-45" class="node-text" text-anchor="middle" fill="#00E5FF">UNKNOWN IP</text>
+    <text x="0" y="5" class="node-text" text-anchor="middle">192.168.X.X</text>
+    <text x="0" y="45" class="sub-text" text-anchor="middle">&gt; IP DETECTED</text>
+  </g>
+
+  <!-- Flow Line 1 to 2 -->
+  <path d="M 102 150 L 238 150" class="flow-line"/>
+
+  <!-- Stage 2: Packet Flow -->
+  <g transform="translate(270, 150)">
+    <circle cx="0" cy="0" r="32" fill="rgba(0, 229, 255, 0.1)" stroke="#00E5FF" stroke-width="2"/>
+    <text x="0" y="-45" class="node-text" text-anchor="middle" fill="#00E5FF">PACKET FLOW</text>
+    <text x="0" y="5" class="node-text" text-anchor="middle">1024 KB/s</text>
+    <text x="0" y="45" class="sub-text" text-anchor="middle">&gt; FLOW DETECTED</text>
+  </g>
+
+  <!-- Flow Line 2 to 3 -->
+  <path d="M 302 150 L 438 150" class="flow-line"/>
+
+  <!-- Stage 3: Port Activity -->
+  <g transform="translate(470, 150)">
+    <circle cx="0" cy="0" r="32" fill="rgba(255, 149, 0, 0.15)" stroke="#FF9500" stroke-width="2"/>
+    <text x="0" y="-45" class="node-text" text-anchor="middle" fill="#FF9500">PORT ACTIVITY</text>
+    <text x="0" y="5" class="node-text" text-anchor="middle">SYN PROBE</text>
+    <text x="0" y="45" class="sub-text" text-anchor="middle">&gt; PORTS 80/443</text>
+  </g>
+
+  <!-- Flow Line 3 to 4 -->
+  <path d="M 502 150 L 638 150" class="flow-line"/>
+
+  <!-- Stage 4: Firewall Probe -->
+  <g transform="translate(670, 150)">
+    <circle cx="0" cy="0" r="32" fill="rgba(255, 59, 48, 0.2)" stroke="#FF3B30" stroke-width="2"/>
+    <text x="0" y="-45" class="node-text" text-anchor="middle" fill="#FF3B30">FIREWALL PROBE</text>
+    <text x="0" y="5" class="node-text" text-anchor="middle">RULE TRIGGER</text>
+    <text x="0" y="45" class="sub-text" text-anchor="middle" fill="#FF3B30">&gt; PROBE BREACH</text>
+  </g>
+
+  <!-- Bottom Terminal Log Banner -->
+  <rect x="35" y="235" width="780" height="45" rx="4" fill="rgba(5, 8, 14, 0.9)" stroke="rgba(255, 59, 48, 0.3)" stroke-width="1"/>
+  <text x="50" y="262" font-family="Fira Code" font-size="11" fill="#FF3B30" font-weight="bold">[ LOG EVENT ] HIGH DENSITY PROBE DETECTED ON PERIMETER FIREWALL — REDIRECTING TRAFFIC TO HONEYPOT ENGINE</text>
+</svg>

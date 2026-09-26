@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#080C14" />
+      <stop offset="100%" stop-color="#04060A" />
+    </linearGradient>
+  </defs>
+  <style>
+    .card-title { font-family: 'Fira Code', monospace; font-size: 12px; font-weight: 700; fill: #00E5FF; }
+    .card-body { font-family: 'Fira Code', monospace; font-size: 11px; fill: #8B949E; }
+    .highlight-green { fill: #00FF9D; font-weight: bold; }
+    .highlight-red { fill: #FF3B30; font-weight: bold; }
+  </style>
+
+  <rect width="850" height="300" rx="8" fill="url(#bgGrad3)" />
+  
+  <!-- 3 Feeds Layout -->
+  <!-- Feed 1: Packet Capture -->
+  <g transform="translate(30, 30)">
+    <rect width="240" height="240" rx="6" fill="rgba(13, 17, 26, 0.85)" stroke="rgba(0, 229, 255, 0.25)" stroke-width="1"/>
+    <text x="15" y="30" class="card-title">FEED 01: PACKET INGEST</text>
+    <line x1="15" y1="40" x2="225" y2="40" stroke="rgba(0, 229, 255, 0.15)" stroke-width="1"/>
+    
+    <!-- Mini Waveform -->
+    <path d="M 15 100 Q 40 40, 65 100 T 115 100 T 165 60 T 225 100" fill="none" stroke="#00E5FF" stroke-width="1.5"/>
+    
+    <text x="15" y="140" class="card-body">RATE: <tspan class="highlight-green">14,280 pps</tspan></text>
+    <text x="15" y="165" class="card-body">PROTOCOL: <tspan fill="#FFFFFF">TLS v1.3 / TCP</tspan></text>
+    <text x="15" y="190" class="card-body">PORT: <tspan fill="#FFFFFF">443 / 8443</tspan></text>
+    <text x="15" y="215" class="card-body">INSPECTION: <tspan class="highlight-green">PASSED</tspan></text>
+  </g>
+
+  <!-- Feed 2: Intrusion Detection -->
+  <g transform="translate(305, 30)">
+    <rect width="240" height="240" rx="6" fill="rgba(13, 17, 26, 0.85)" stroke="rgba(255, 59, 48, 0.3)" stroke-width="1"/>
+    <text x="15" y="30" class="card-title" fill="#FF3B30">FEED 02: IDS / PROBE DETECT</text>
+    <line x1="15" y1="40" x2="225" y2="40" stroke="rgba(255, 59, 48, 0.2)" stroke-width="1"/>
+
+    <!-- Alert Box -->
+    <rect x="15" y="60" width="210" height="50" rx="4" fill="rgba(255, 59, 48, 0.12)" stroke="#FF3B30" stroke-width="1"/>
+    <text x="25" y="82" font-family="Fira Code" font-size="11" fill="#FF3B30" font-weight="bold">PROBE ANOMALY DETECTED</text>
+    <text x="25" y="98" font-family="Fira Code" font-size="10" fill="#FF9500">ORIGIN: UNKNOWN IP</text>
+
+    <text x="15" y="140" class="card-body">RULE MATCH: <tspan class="highlight-red">SNORT-7901</tspan></text>
+    <text x="15" y="165" class="card-body">TARGET: <tspan fill="#FFFFFF">DMZ FIREWALL</tspan></text>
+    <text x="15" y="190" class="card-body">SEVERITY: <tspan class="highlight-red">HIGH</tspan></text>
+    <text x="15" y="215" class="card-body">ACTION: <tspan fill="#00FF9D">REDIRECT TO HONEYPOT</tspan></text>
+  </g>
+
+  <!-- Feed 3: Behavioral Analysis -->
+  <g transform="translate(580, 30)">
+    <rect width="240" height="240" rx="6" fill="rgba(13, 17, 26, 0.85)" stroke="rgba(0, 229, 255, 0.25)" stroke-width="1"/>
+    <text x="15" y="30" class="card-title">FEED 03: BEHAVIOR MATRIX</text>
+    <line x1="15" y1="40" x2="225" y2="40" stroke="rgba(0, 229, 255, 0.15)" stroke-width="1"/>
+
+    <!-- Node Matrix Graphic -->
+    <circle cx="50" cy="80" r="8" fill="#00E5FF"/>
+    <circle cx="120" cy="65" r="8" fill="#00FF9D"/>
+    <circle cx="190" cy="85" r="8" fill="#D4AF37"/>
+    <line x1="50" y1="80" x2="120" y2="65" stroke="rgba(0, 229, 255, 0.4)" stroke-width="1.5"/>
+    <line x1="120" y1="65" x2="190" y2="85" stroke="rgba(0, 229, 255, 0.4)" stroke-width="1.5"/>
+
+    <text x="15" y="140" class="card-body">CHESS PATTERN: <tspan fill="#D4AF37">TACTICAL</tspan></text>
+    <text x="15" y="165" class="card-body">AI PROMPT VECTOR: <tspan fill="#00FF9D">SECURE</tspan></text>
+    <text x="15" y="190" class="card-body">BLUE TEAM LOGS: <tspan fill="#00E5FF">PARSED</tspan></text>
+    <text x="15" y="215" class="card-body">RUNNING CADENCE: <tspan fill="#00FF9D">SUB-26M 5K</tspan></text>
+  </g>
+</svg>

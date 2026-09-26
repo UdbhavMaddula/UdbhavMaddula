@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 60" width="100%" height="60">
+  <defs>
+    <linearGradient id="wordGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00E5FF" />
+      <stop offset="50%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#00FF9D" />
+    </linearGradient>
+  </defs>
+  <style>
+    .brand-title {
+      font-family: 'Fira Code', 'JetBrains Mono', monospace;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      fill: url(#wordGrad);
+    }
+    .brand-sub {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 6px;
+      fill: #8B949E;
+    }
+  </style>
+  <text x="0" y="28" class="brand-title">UDBHAV MADDULA</text>
+  <text x="0" y="48" class="brand-sub">CYBER FORENSICS · AI SECURITY · CHESS MASTERY</text>
+</svg>

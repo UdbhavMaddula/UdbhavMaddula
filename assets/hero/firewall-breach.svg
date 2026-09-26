@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="alarmGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1A0505" />
+      <stop offset="50%" stop-color="#2D0A0A" />
+      <stop offset="100%" stop-color="#1A0505" />
+    </linearGradient>
+    <filter id="redGlow">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <style>
+    @keyframes alarmPulse {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+    .alarm-box { animation: alarmPulse 1.5s infinite ease-in-out; }
+    .warning-title { font-family: 'Fira Code', monospace; font-size: 20px; font-weight: 900; fill: #FF3B30; letter-spacing: 4px; }
+    .warning-sub { font-family: 'Fira Code', monospace; font-size: 12px; font-weight: 700; fill: #FF9500; letter-spacing: 2px; }
+    .warning-detail { font-family: 'Fira Code', monospace; font-size: 11px; fill: #E6EDF3; letter-spacing: 1px; }
+  </style>
+
+  <rect width="850" height="240" rx="8" fill="url(#alarmGrad)" />
+  <rect x="15" y="15" width="820" height="210" rx="6" fill="none" stroke="#FF3B30" stroke-width="2" filter="url(#redGlow)" class="alarm-box" />
+
+  <!-- Diagonal Warning Stripes Top & Bottom -->
+  <path d="M 15 15 L 35 15 L 15 35 Z M 835 15 L 815 15 L 835 35 Z M 15 225 L 35 225 L 15 205 Z M 835 225 L 815 225 L 835 205 Z" fill="#FF3B30"/>
+
+  <g transform="translate(425, 75)" text-anchor="middle">
+    <!-- Warning Icon -->
+    <path d="M 0 -30 L 30 20 L -30 20 Z" fill="none" stroke="#FF3B30" stroke-width="3" stroke-linejoin="round" filter="url(#redGlow)"/>
+    <text x="0" y="12" font-family="Fira Code" font-size="20" font-weight="bold" fill="#FF3B30">!</text>
+    
+    <text x="0" y="55" class="warning-title" filter="url(#redGlow)">CRITICAL ALERT: FIREWALL BREACH</text>
+    <text x="0" y="80" class="warning-sub">UNAUTHORIZED PACKET PROBE PENETRATED DMZ LAYER 2</text>
+    <text x="0" y="110" class="warning-detail">TARGET ISOLATED // AUTOMATIC TRAP ROUTER ENGAGED // HONEYPOT ACTIVE</text>
+  </g>
+</svg>
