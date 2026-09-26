@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="irBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#030509" />
+      <stop offset="50%" stop-color="#080E1C" />
+      <stop offset="100%" stop-color="#020306" />
+    </linearGradient>
+
+    <linearGradient id="irGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00E5FF" />
+      <stop offset="30%" stop-color="#FFFFFF" />
+      <stop offset="70%" stop-color="#00FF9D" />
+      <stop offset="100%" stop-color="#D4AF37" />
+    </linearGradient>
+
+    <radialGradient id="irGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="rgba(0, 229, 255, 0.2)" />
+      <stop offset="100%" stop-color="rgba(0, 0, 0, 0)" />
+    </radialGradient>
+
+    <filter id="irFilter">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    .font-code { font-family: 'Fira Code', 'JetBrains Mono', monospace; }
+    .font-sans { font-family: 'Inter', system-ui, sans-serif; }
+  </style>
+
+  <rect width="1600" height="500" rx="10" fill="url(#irBg)"/>
+  <rect width="1600" height="500" rx="10" fill="url(#irGlow)"/>
+  <rect x="25" y="25" width="1550" height="450" rx="8" fill="none" stroke="url(#irGrad)" stroke-width="3" filter="url(#irFilter)"/>
+
+  <g transform="translate(800, 180)" text-anchor="middle">
+    <!-- System Badge -->
+    <rect x="-180" y="-55" width="360" height="38" rx="19" fill="rgba(0, 255, 157, 0.15)" stroke="#00FF9D" stroke-width="2"/>
+    <text x="0" y="-30" class="font-code" font-size="14" font-weight="bold" fill="#00FF9D" letter-spacing="3">IDENTITY RESOLVED · 100% MATCH</text>
+
+    <!-- Main Climax Title -->
+    <text x="0" y="60" class="font-code" font-size="86" font-weight="900" fill="url(#irGrad)" letter-spacing="8" filter="url(#irFilter)">UDBHAV</text>
+
+    <!-- Sub Title -->
+    <text x="0" y="130" class="font-code" font-size="34" font-weight="800" fill="#FFFFFF" letter-spacing="4">MAANAS SRI UDBHAV MADDULA</text>
+
+    <!-- Pillars -->
+    <text x="0" y="190" class="font-code" font-size="20" font-weight="bold" fill="#00FF9D" letter-spacing="6">CHESS  ·  RUN  ·  AI SECURITY</text>
+
+    <line x1="-350" y1="230" x2="350" y2="230" stroke="rgba(0, 229, 255, 0.3)" stroke-width="1.5"/>
+
+    <!-- Motto -->
+    <text x="0" y="270" class="font-sans" font-size="20" font-weight="700" fill="#D4AF37" letter-spacing="8">DREAM  ·  RUN  ·  REACH  ·  DESTINATION</text>
+  </g>
+</svg>

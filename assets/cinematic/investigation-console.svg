@@ -1,0 +1,439 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="invBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#030509" />
+      <stop offset="50%" stop-color="#070B14" />
+      <stop offset="100%" stop-color="#020306" />
+    </linearGradient>
+
+    <!-- Header Gradient -->
+    <linearGradient id="hdrGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00E5FF" />
+      <stop offset="50%" stop-color="#FF3B30" />
+      <stop offset="100%" stop-color="#00FF9D" />
+    </linearGradient>
+
+    <!-- Main Climax Title Gradient -->
+    <linearGradient id="climaxGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00E5FF" />
+      <stop offset="25%" stop-color="#FFFFFF" />
+      <stop offset="65%" stop-color="#00FF9D" />
+      <stop offset="100%" stop-color="#D4AF37" />
+    </linearGradient>
+
+    <radialGradient id="cyanGlowRadial" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="rgba(0, 229, 255, 0.18)" />
+      <stop offset="60%" stop-color="rgba(0, 255, 157, 0.06)" />
+      <stop offset="100%" stop-color="rgba(0, 0, 0, 0)" />
+    </radialGradient>
+
+    <radialGradient id="redAlertRadial" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="rgba(255, 59, 48, 0.35)" />
+      <stop offset="100%" stop-color="rgba(0, 0, 0, 0)" />
+    </radialGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="invGrid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(0, 229, 255, 0.05)" stroke-width="1"/>
+    </pattern>
+
+    <!-- Glow Filter -->
+    <filter id="consoleFilter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes scanlineSweep {
+      0% { transform: translateY(-900px); }
+      100% { transform: translateY(900px); }
+    }
+    @keyframes recPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.15; }
+    }
+    @keyframes alertFramePulse {
+      0%, 100% { stroke: #FF3B30; stroke-width: 4; opacity: 1; }
+      50% { stroke: #FF9500; stroke-width: 2; opacity: 0.3; }
+    }
+    @keyframes packetMove {
+      0% { stroke-dashoffset: 600; }
+      100% { stroke-dashoffset: 0; }
+    }
+
+    .font-code { font-family: 'Fira Code', 'JetBrains Mono', monospace; }
+    .font-sans { font-family: 'Inter', system-ui, sans-serif; }
+    
+    .scan-line { animation: scanlineSweep 7s linear infinite; }
+    .rec-blink { animation: recPulse 1s infinite; }
+    .packet-trail { stroke-dasharray: 16, 16; animation: packetMove 3s linear infinite; }
+  </style>
+
+  <!-- ========================================================================= -->
+  <!-- 00. VIEWPORT CANVAS & CLASSIFIED TOP HEADER BAR                           -->
+  <!-- ========================================================================= -->
+  <rect width="1600" height="900" fill="url(#invBg)"/>
+  <rect width="1600" height="900" fill="url(#invGrid)"/>
+  <rect width="1600" height="900" fill="url(#cyanGlowRadial)"/>
+
+  <!-- Outer Glass Frame -->
+  <rect x="20" y="20" width="1560" height="860" rx="8" fill="none" stroke="rgba(0, 229, 255, 0.3)" stroke-width="2"/>
+
+  <!-- Corner Brackets -->
+  <path d="M 20 70 L 20 20 L 70 20" fill="none" stroke="#00E5FF" stroke-width="4"/>
+  <path d="M 1580 70 L 1580 20 L 1530 20" fill="none" stroke="#00E5FF" stroke-width="4"/>
+  <path d="M 20 830 L 20 880 L 70 880" fill="none" stroke="#00E5FF" stroke-width="4"/>
+  <path d="M 1580 830 L 1580 880 L 1530 880" fill="none" stroke="#00E5FF" stroke-width="4"/>
+
+  <!-- Scanline CRT Texture Overlay -->
+  <g class="scan-line" opacity="0.12">
+    <line x1="0" y1="0" x2="1600" y2="0" stroke="#00E5FF" stroke-width="4"/>
+  </g>
+
+  <!-- TOP CLASSIFIED INTELLIGENCE HEADER (Always Visible) -->
+  <g transform="translate(45, 45)">
+    <rect width="1510" height="55" rx="6" fill="rgba(8, 14, 26, 0.95)" stroke="url(#hdrGrad)" stroke-width="1.5"/>
+    <text x="25" y="35" class="font-code" font-size="15" font-weight="900" fill="#FF3B30" letter-spacing="3">CLASSIFIED // INTELLIGENCE INVESTIGATION CONSOLE</text>
+    <text x="680" y="35" class="font-code" font-size="15" font-weight="bold" fill="#00E5FF" letter-spacing="2">CASE FILE: UDBHAV-001</text>
+    <text x="1280" y="35" class="font-code" font-size="15" font-weight="bold" fill="#00FF9D" letter-spacing="2">STATUS: ACTIVE TRACE</text>
+  </g>
+
+
+  <!-- ========================================================================= -->
+  <!-- SCENE 01 — SYSTEM BOOT (00:00 – 00:04)                                   -->
+  <!-- ========================================================================= -->
+  <g opacity="1">
+    <animate attributeName="opacity" values="1;1;0;0" keyTimes="0; 0.07; 0.083; 1" dur="48s" repeatCount="indefinite" />
+
+    <g transform="translate(400, 320)">
+      <rect width="800" height="280" rx="10" fill="rgba(4, 7, 14, 0.98)" stroke="#00E5FF" stroke-width="2"/>
+      <g transform="translate(40, 60)" class="font-code" font-size="18">
+        <text y="0" fill="#00E5FF" opacity="0">
+          <animate attributeName="opacity" values="0;1;1" keyTimes="0; 0.01; 1" dur="48s" repeatCount="indefinite" />
+          &gt; INITIALIZING SECURE INVESTIGATION CONSOLE...
+        </text>
+
+        <text y="40" fill="#00FF9D" opacity="0">
+          <animate attributeName="opacity" values="0;0;1;1" keyTimes="0; 0.02; 0.025; 1" dur="48s" repeatCount="indefinite" />
+          &gt; CAMERA 01 ONLINE  |  CAMERA 02 ONLINE
+        </text>
+
+        <text y="80" fill="#00FF9D" opacity="0">
+          <animate attributeName="opacity" values="0;0;1;1" keyTimes="0; 0.035; 0.04; 1" dur="48s" repeatCount="indefinite" />
+          &gt; THERMAL SENSOR ONLINE  |  NETWORK SENSOR ONLINE
+        </text>
+
+        <text y="140" font-size="24" font-weight="900" fill="#00FF9D" opacity="0" filter="url(#consoleFilter)">
+          <animate attributeName="opacity" values="0;0;1;1" keyTimes="0; 0.055; 0.06; 1" dur="48s" repeatCount="indefinite" />
+          [ SYSTEM ONLINE — ALL SURVEILLANCE ACTIVE ]
+        </text>
+      </g>
+    </g>
+  </g>
+
+
+  <!-- ========================================================================= -->
+  <!-- SCENE 02 — TARGET ACQUISITION & MOTION ALERT (00:04 – 00:08)              -->
+  <!-- ========================================================================= -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0; 0.083; 0.09; 0.16; 0.166; 1" dur="48s" repeatCount="indefinite" />
+
+    <!-- Center Reticle & Subject Silhouette -->
+    <g transform="translate(800, 470)">
+      <circle cx="0" cy="0" r="160" fill="none" stroke="rgba(0, 229, 255, 0.4)" stroke-width="2" stroke-dasharray="12,8"/>
+      <circle cx="0" cy="0" r="220" fill="none" stroke="rgba(0, 229, 255, 0.2)" stroke-width="1.5"/>
+      <line x1="-280" y1="0" x2="280" y2="0" stroke="rgba(0, 229, 255, 0.3)" stroke-width="1.5" stroke-dasharray="6,6"/>
+      <line x1="0" y1="-280" x2="0" y2="280" stroke="rgba(0, 229, 255, 0.3)" stroke-width="1.5" stroke-dasharray="6,6"/>
+
+      <!-- Silhouette -->
+      <circle cx="0" cy="-40" r="50" fill="rgba(0, 229, 255, 0.15)" stroke="#00E5FF" stroke-width="2.5"/>
+      <path d="M -110 130 C -110 50, 110 50, 110 130 Z" fill="rgba(0, 229, 255, 0.15)" stroke="#00E5FF" stroke-width="2.5"/>
+
+      <!-- Large Target Label -->
+      <rect x="-170" y="-170" width="340" height="48" rx="6" fill="rgba(255, 59, 48, 0.2)" stroke="#FF3B30" stroke-width="2"/>
+      <text x="0" y="-138" class="font-code" font-size="24" font-weight="900" fill="#FF3B30" text-anchor="middle" letter-spacing="3" filter="url(#consoleFilter)">UNKNOWN SUBJECT</text>
+    </g>
+
+    <!-- Large Warning Badges (Left Side) -->
+    <g transform="translate(100, 240)">
+      <rect width="450" height="240" rx="8" fill="rgba(6, 10, 20, 0.95)" stroke="#FF9500" stroke-width="2"/>
+      <g transform="translate(30, 50)" class="font-code" font-size="18" font-weight="bold" fill="#FF9500">
+        <text y="0">[ WARN ] MOTION DETECTED</text>
+        <text y="45">[ WARN ] MOVEMENT DETECTED</text>
+        <text y="90" fill="#FF3B30" font-size="20">[ ALERT ] BEHAVIOR SIGNATURE DETECTED</text>
+        <text y="140" fill="#00FF9D" font-size="15">&gt; LOCKING SURVEILLANCE RETICLE...</text>
+      </g>
+    </g>
+  </g>
+
+
+  <!-- ========================================================================= -->
+  <!-- SCENE 03 — NETWORK ACTIVITY & PACKET STREAM (00:08 – 00:12)               -->
+  <!-- ========================================================================= -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0; 0.166; 0.175; 0.24; 0.25; 1" dur="48s" repeatCount="indefinite" />
+
+    <text x="800" y="180" class="font-code" font-size="32" font-weight="900" fill="#00E5FF" letter-spacing="4" text-anchor="middle" filter="url(#consoleFilter)">NETWORK ACTIVITY DETECTED</text>
+
+    <!-- Moving Connection Lines -->
+    <path d="M 200 470 L 1400 470" stroke="url(#hdrGrad)" stroke-width="4" class="packet-trail"/>
+
+    <!-- 4 Large Telemetry Nodes -->
+    <!-- Node 1 -->
+    <g transform="translate(250, 470)">
+      <circle cx="0" cy="0" r="65" fill="rgba(0, 229, 255, 0.15)" stroke="#00E5FF" stroke-width="3"/>
+      <text x="0" y="-85" class="font-code" font-size="18" font-weight="bold" fill="#00E5FF" text-anchor="middle">UNKNOWN IP</text>
+      <text x="0" y="8" class="font-code" font-size="16" fill="#FFFFFF" text-anchor="middle">192.168.1.104</text>
+    </g>
+
+    <!-- Node 2 -->
+    <g transform="translate(600, 470)">
+      <circle cx="0" cy="0" r="65" fill="rgba(0, 229, 255, 0.15)" stroke="#00E5FF" stroke-width="3"/>
+      <text x="0" y="-85" class="font-code" font-size="18" font-weight="bold" fill="#00E5FF" text-anchor="middle">PACKET STREAM</text>
+      <text x="0" y="8" class="font-code" font-size="16" fill="#FFFFFF" text-anchor="middle">14,280 pps</text>
+    </g>
+
+    <!-- Node 3 -->
+    <g transform="translate(950, 470)">
+      <circle cx="0" cy="0" r="65" fill="rgba(255, 149, 0, 0.15)" stroke="#FF9500" stroke-width="3"/>
+      <text x="0" y="-85" class="font-code" font-size="18" font-weight="bold" fill="#FF9500" text-anchor="middle">PORT ACTIVITY</text>
+      <text x="0" y="8" class="font-code" font-size="16" fill="#FFFFFF" text-anchor="middle">PORTS 443 / 8443</text>
+    </g>
+
+    <!-- Node 4 -->
+    <g transform="translate(1300, 470)">
+      <circle cx="0" cy="0" r="65" fill="rgba(255, 59, 48, 0.2)" stroke="#FF3B30" stroke-width="3"/>
+      <text x="0" y="-85" class="font-code" font-size="18" font-weight="bold" fill="#FF3B30" text-anchor="middle">TLS TRAFFIC</text>
+      <text x="0" y="8" class="font-code" font-size="16" fill="#FF3B30" font-weight="bold" text-anchor="middle">PROBE LOCK</text>
+    </g>
+  </g>
+
+
+  <!-- ========================================================================= -->
+  <!-- SCENE 04 — FIREWALL BREACH (00:12 – 00:16)                                -->
+  <!-- ========================================================================= -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0; 0.25; 0.258; 0.325; 0.333; 1" dur="48s" repeatCount="indefinite" />
+
+    <!-- Red Alert Full Screen Glow -->
+    <rect x="20" y="20" width="1560" height="860" rx="8" fill="url(#redAlertRadial)"/>
+    <rect x="20" y="20" width="1560" height="860" rx="8" fill="none" stroke="#FF3B30" stroke-width="4" style="animation: alertFramePulse 0.8s infinite;"/>
+
+    <g transform="translate(800, 450)" text-anchor="middle">
+      <path d="M 0 -90 L 80 50 L -80 50 Z" fill="none" stroke="#FF3B30" stroke-width="5" stroke-linejoin="round" filter="url(#consoleFilter)"/>
+      <text x="0" y="25" class="font-code" font-size="50" font-weight="900" fill="#FF3B30">!</text>
+
+      <text x="0" y="130" class="font-code" font-size="42" font-weight="900" fill="#FF3B30" letter-spacing="6" filter="url(#consoleFilter)">!!! FIREWALL BREACH !!!</text>
+      <text x="0" y="185" class="font-code" font-size="22" font-weight="bold" fill="#FF9500" letter-spacing="3">UNAUTHORIZED PROBE DETECTED ON DMZ PERIMETER LAYER</text>
+      <text x="0" y="245" class="font-code" font-size="20" font-weight="bold" fill="#00FF9D" letter-spacing="2">&gt; AUTOMATIC RESPONSE: REDIRECTING SUBJECT TO HONEYPOT &lt;</text>
+    </g>
+  </g>
+
+
+  <!-- ========================================================================= -->
+  <!-- SCENE 05 — HONEYPOT TRAP LOCK (00:16 – 00:20)                             -->
+  <!-- ========================================================================= -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0; 0.333; 0.34; 0.41; 0.416; 1" dur="48s" repeatCount="indefinite" />
+
+    <text x="800" y="180" class="font-code" font-size="36" font-weight="900" fill="#00FF9D" letter-spacing="4" text-anchor="middle" filter="url(#consoleFilter)">HONEYPOT ACTIVE</text>
+
+    <!-- Animated Path Chain -->
+    <g transform="translate(150, 350)">
+      <g transform="translate(0, 0)">
+        <rect width="180" height="75" rx="8" fill="rgba(8, 24, 18, 0.95)" stroke="#00FF9D" stroke-width="2"/>
+        <text x="90" y="45" class="font-code" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">SUBJECT</text>
+      </g>
+      <path d="M 180 37 L 230 37" stroke="#00FF9D" stroke-width="3"/>
+
+      <g transform="translate(230, 0)">
+        <rect width="180" height="75" rx="8" fill="rgba(8, 24, 18, 0.95)" stroke="#00FF9D" stroke-width="2"/>
+        <text x="90" y="45" class="font-code" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">NETWORK</text>
+      </g>
+      <path d="M 410 37 L 460 37" stroke="#00FF9D" stroke-width="3"/>
+
+      <g transform="translate(460, 0)">
+        <rect width="180" height="75" rx="8" fill="rgba(8, 24, 18, 0.95)" stroke="#00FF9D" stroke-width="2"/>
+        <text x="90" y="45" class="font-code" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">IP PROBE</text>
+      </g>
+      <path d="M 640 37 L 690 37" stroke="#00FF9D" stroke-width="3"/>
+
+      <g transform="translate(690, 0)">
+        <rect width="180" height="75" rx="8" fill="rgba(8, 24, 18, 0.95)" stroke="#00FF9D" stroke-width="2"/>
+        <text x="90" y="45" class="font-code" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">FIREWALL</text>
+      </g>
+      <path d="M 870 37 L 920 37" stroke="#00FF9D" stroke-width="3"/>
+
+      <g transform="translate(920, 0)">
+        <rect width="180" height="75" rx="8" fill="rgba(8, 24, 18, 0.95)" stroke="#00FF9D" stroke-width="2"/>
+        <text x="90" y="45" class="font-code" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">DMZ</text>
+      </g>
+      <path d="M 1100 37 L 1150 37" stroke="#00FF9D" stroke-width="3"/>
+
+      <g transform="translate(1150, 0)">
+        <rect width="210" height="75" rx="8" fill="#00FF9D" stroke="#FFFFFF" stroke-width="3"/>
+        <text x="105" y="45" class="font-code" font-size="18" font-weight="900" fill="#03060B" text-anchor="middle">HONEYPOT</text>
+      </g>
+    </g>
+
+    <!-- Large Status Card -->
+    <g transform="translate(400, 520)">
+      <rect width="800" height="180" rx="10" fill="rgba(4, 14, 10, 0.98)" stroke="#00FF9D" stroke-width="2.5"/>
+      <g transform="translate(60, 55)" class="font-code" font-size="22" font-weight="900" fill="#00FF9D">
+        <text y="0" filter="url(#consoleFilter)">[ SUCCESS ] HONEYPOT TRIGGERED</text>
+        <text y="45" font-size="20" fill="#FFFFFF">[ SUCCESS ] SIGNATURE CAPTURED</text>
+        <text y="90" font-size="20" fill="#00FF9D">[ SUCCESS ] SUBJECT LOCKED</text>
+      </g>
+    </g>
+  </g>
+
+
+  <!-- ========================================================================= -->
+  <!-- SCENE 06 — EVIDENCE CORRELATION GRAPH (00:20 – 00:24)                    -->
+  <!-- ========================================================================= -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0; 0.416; 0.425; 0.49; 0.50; 1" dur="48s" repeatCount="indefinite" />
+
+    <text x="800" y="160" class="font-code" font-size="28" font-weight="900" fill="#D4AF37" letter-spacing="4" text-anchor="middle" filter="url(#consoleFilter)">CORRELATING EVIDENCE SIGNATURES...</text>
+
+    <!-- Center Node -->
+    <g transform="translate(800, 460)">
+      <circle cx="0" cy="0" r="85" fill="rgba(0, 229, 255, 0.18)" stroke="#00E5FF" stroke-width="3" filter="url(#consoleFilter)"/>
+      <text x="0" y="-12" class="font-code" font-size="16" font-weight="900" fill="#00E5FF" text-anchor="middle">UNKNOWN</text>
+      <text x="0" y="15" class="font-code" font-size="16" font-weight="900" fill="#00FF9D" text-anchor="middle">SUBJECT</text>
+
+      <!-- Connecting Lines -->
+      <line x1="0" y1="-85" x2="-380" y2="-190" stroke="#D4AF37" stroke-width="2.5" stroke-dasharray="6,4"/>
+      <line x1="0" y1="-85" x2="380" y2="-190" stroke="#00E5FF" stroke-width="2.5" stroke-dasharray="6,4"/>
+      <line x1="-85" y1="0" x2="-440" y2="40" stroke="#00FF9D" stroke-width="2.5" stroke-dasharray="6,4"/>
+      <line x1="85" y1="0" x2="440" y2="40" stroke="#FF9500" stroke-width="2.5" stroke-dasharray="6,4"/>
+      <line x1="0" y1="85" x2="0" y2="190" stroke="#FFFFFF" stroke-width="2.5" stroke-dasharray="6,4"/>
+    </g>
+
+    <!-- 5 Large Node Cards -->
+    <!-- 1. CHESS -->
+    <g transform="translate(200, 210)">
+      <rect width="280" height="75" rx="8" fill="rgba(8, 12, 22, 0.95)" stroke="#D4AF37" stroke-width="2.5"/>
+      <text x="25" y="45" class="font-code" font-size="18" font-weight="900" fill="#D4AF37">CHESS</text>
+    </g>
+
+    <!-- 2. AI SECURITY -->
+    <g transform="translate(1120, 210)">
+      <rect width="280" height="75" rx="8" fill="rgba(8, 12, 22, 0.95)" stroke="#00E5FF" stroke-width="2.5"/>
+      <text x="25" y="45" class="font-code" font-size="18" font-weight="900" fill="#00E5FF">AI SECURITY</text>
+    </g>
+
+    <!-- 3. BLUE TEAM -->
+    <g transform="translate(1400, 460)">
+      <rect width="180" height="75" rx="8" fill="rgba(8, 12, 22, 0.95)" stroke="#00FF9D" stroke-width="2.5"/>
+      <text x="25" y="45" class="font-code" font-size="18" font-weight="900" fill="#00FF9D">BLUE TEAM</text>
+    </g>
+
+    <!-- 4. RUNNING -->
+    <g transform="translate(20, 460)">
+      <rect width="180" height="75" rx="8" fill="rgba(8, 12, 22, 0.95)" stroke="#FF9500" stroke-width="2.5"/>
+      <text x="25" y="45" class="font-code" font-size="18" font-weight="900" fill="#FF9500">RUNNING</text>
+    </g>
+
+    <!-- 5. DISCIPLINE -->
+    <g transform="translate(660, 650)">
+      <rect width="280" height="75" rx="8" fill="rgba(8, 12, 22, 0.95)" stroke="#FFFFFF" stroke-width="2.5"/>
+      <text x="25" y="45" class="font-code" font-size="18" font-weight="900" fill="#FFFFFF">DISCIPLINE</text>
+    </g>
+
+    <!-- Match Percentage Box -->
+    <g transform="translate(650, 770)">
+      <rect width="300" height="45" rx="6" fill="rgba(0, 255, 157, 0.15)" stroke="#00FF9D" stroke-width="1.5"/>
+      <text x="150" y="28" class="font-code" font-size="16" font-weight="900" fill="#00FF9D" text-anchor="middle">IDENTITY MATCH: 99.8%</text>
+    </g>
+  </g>
+
+
+  <!-- ========================================================================= -->
+  <!-- SCENE 07 — TERMINAL WHOAMI HANDSHAKE (00:24 – 00:28)                     -->
+  <!-- ========================================================================= -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0; 0.50; 0.508; 0.575; 0.583; 1" dur="48s" repeatCount="indefinite" />
+
+    <g transform="translate(350, 250)">
+      <rect width="900" height="400" rx="12" fill="#020407" stroke="#00E5FF" stroke-width="2.5"/>
+      <rect x="0" y="0" width="900" height="45" rx="12" fill="rgba(14, 22, 36, 0.95)"/>
+      <circle cx="25" cy="22" r="7" fill="#FF3B30"/>
+      <circle cx="48" cy="22" r="7" fill="#FF9500"/>
+      <circle cx="71" cy="22" r="7" fill="#00FF9D"/>
+      <text x="450" y="28" class="font-code" font-size="14" fill="#8B949E" text-anchor="middle">bash — udbhav@system: ~ (x86_64)</text>
+
+      <g transform="translate(50, 120)" class="font-code" font-size="22">
+        <text y="0">
+          <tspan fill="#00FF9D" font-weight="bold">udbhav@system</tspan><tspan fill="#FFFFFF">:</tspan><tspan fill="#00E5FF" font-weight="bold">~</tspan><tspan fill="#FFFFFF">$ whoami</tspan>
+        </text>
+
+        <!-- Command Output -->
+        <text y="70" font-size="30" font-weight="900" fill="#00FF9D" opacity="0" filter="url(#consoleFilter)">
+          <animate attributeName="opacity" values="0;0;1;1" keyTimes="0; 0.40; 0.45; 1" dur="4s" repeatCount="indefinite"/>
+          udbhav
+        </text>
+
+        <!-- Identity Confirmed Status -->
+        <text y="150" font-size="20" font-weight="bold" fill="#D4AF37" opacity="0">
+          <animate attributeName="opacity" values="0;0;1;1" keyTimes="0; 0.70; 0.75; 1" dur="4s" repeatCount="indefinite"/>
+          [ IDENTITY CONFIRMED — INITIATING MAIN REVEAL ]
+        </text>
+      </g>
+    </g>
+  </g>
+
+
+  <!-- ========================================================================= -->
+  <!-- SCENE 08 — THE VISUAL CLIMAX REVEAL (00:28 – 00:36)                       -->
+  <!-- ========================================================================= -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0; 0.583; 0.59; 0.74; 0.75; 1" dur="48s" repeatCount="indefinite" />
+
+    <rect x="20" y="20" width="1560" height="860" rx="8" fill="url(#cyanGlowRadial)"/>
+    <rect x="40" y="40" width="1520" height="820" rx="6" fill="none" stroke="url(#climaxGrad)" stroke-width="3.5" filter="url(#consoleFilter)"/>
+
+    <g transform="translate(800, 320)" text-anchor="middle">
+      <!-- System Seal -->
+      <rect x="-200" y="-75" width="400" height="42" rx="21" fill="rgba(0, 255, 157, 0.15)" stroke="#00FF9D" stroke-width="2"/>
+      <text x="0" y="-48" class="font-code" font-size="15" font-weight="bold" fill="#00FF9D" letter-spacing="3">IDENTITY RESOLVED · 100% MATCH</text>
+
+      <!-- HUGE CLIMAX NAME -->
+      <text x="0" y="55" class="font-code" font-size="90" font-weight="900" fill="url(#climaxGrad)" letter-spacing="8" filter="url(#consoleFilter)">UDBHAV</text>
+
+      <!-- FULL NAME -->
+      <text x="0" y="130" class="font-code" font-size="38" font-weight="800" fill="#FFFFFF" letter-spacing="4">MAANAS SRI UDBHAV MADDULA</text>
+
+      <!-- Core Pillars -->
+      <text x="0" y="200" class="font-code" font-size="22" font-weight="bold" fill="#00FF9D" letter-spacing="8">CHESS  ·  RUN  ·  AI SECURITY</text>
+
+      <line x1="-380" y1="245" x2="380" y2="245" stroke="rgba(0, 229, 255, 0.4)" stroke-width="2"/>
+
+      <!-- Motto -->
+      <text x="0" y="295" class="font-sans" font-size="22" font-weight="700" fill="#D4AF37" letter-spacing="8">DREAM  ·  RUN  ·  REACH  ·  DESTINATION</text>
+    </g>
+  </g>
+
+
+  <!-- ========================================================================= -->
+  <!-- SCENE 09 — CHESSBOARD MATRIX TRANSITION (00:36 – 00:48)                   -->
+  <!-- ========================================================================= -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0; 0.75; 0.76; 1" dur="48s" repeatCount="indefinite" />
+
+    <rect x="40" y="40" width="1520" height="820" rx="6" fill="rgba(8, 12, 20, 0.98)" stroke="#D4AF37" stroke-width="3.5" filter="url(#consoleFilter)"/>
+
+    <g transform="translate(800, 420)" text-anchor="middle">
+      <text x="0" y="-80" font-size="70" fill="#FFD700">♔ ♕ ♗ ♖ ♘ ♙</text>
+
+      <text x="0" y="10" class="font-code" font-size="22" font-weight="900" fill="#00FF9D" letter-spacing="4">CASE CLOSED // NEW INTERFACE LOADED</text>
+
+      <text x="0" y="70" class="font-code" font-size="40" font-weight="900" fill="#D4AF37" letter-spacing="6" filter="url(#consoleFilter)">CHESS ENDGAME NAVIGATION MATRIX</text>
+      
+      <text x="0" y="140" class="font-code" font-size="20" font-weight="bold" fill="#00E5FF" letter-spacing="3">&gt; SELECT YOUR MOVE ON THE CHESSBOARD BELOW &lt;</text>
+    </g>
+  </g>
+
+</svg>

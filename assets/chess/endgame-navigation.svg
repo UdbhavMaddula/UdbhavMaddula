@@ -1,0 +1,232 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%">
+  <defs>
+    <!-- Board Square Fills -->
+    <linearGradient id="sqDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B101D" />
+      <stop offset="100%" stop-color="#05080E" />
+    </linearGradient>
+    <linearGradient id="sqLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A2638" />
+      <stop offset="100%" stop-color="#101A28" />
+    </linearGradient>
+    <linearGradient id="boardFrameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" />
+      <stop offset="50%" stop-color="#1E2B40" />
+      <stop offset="100%" stop-color="#00E5FF" />
+    </linearGradient>
+
+    <!-- Piece Glow Filters -->
+    <filter id="goldGlowFilter" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="cyanGlowFilter" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    .font-code { font-family: 'Fira Code', 'JetBrains Mono', monospace; }
+    .font-sans { font-family: 'Inter', system-ui, sans-serif; }
+    
+    .piece-node { cursor: pointer; transition: transform 0.3s ease, filter 0.3s ease; }
+    .piece-node:hover { transform: scale(1.12); filter: drop-shadow(0 0 16px #00FF9D); }
+  </style>
+
+  <!-- Container Dark Background -->
+  <rect width="1600" height="900" fill="#030509" stroke="rgba(212, 175, 55, 0.4)" stroke-width="2"/>
+
+  <!-- Top Navigation Header -->
+  <g transform="translate(60, 50)">
+    <text class="font-code" font-size="28" font-weight="900" fill="#D4AF37" letter-spacing="4" filter="url(#goldGlowFilter)">CHESS ENDGAME NAVIGATION — SELECT YOUR MOVE</text>
+    <text y="38" class="font-code" font-size="16" fill="#00FF9D" letter-spacing="2">&gt; INTERFACE ACTIVE — SELECT A PIECE BELOW OR IN THE INDEX TO ENGAGE PROFILE DOMAIN</text>
+  </g>
+
+  <!-- 8x8 Chessboard Grid (Left Side: X: 60, Y: 120, Grid Size: 700x700, Square 87.5x87.5) -->
+  <g transform="translate(60, 120)">
+    <!-- Board Outer Border Frame -->
+    <rect x="-16" y="-16" width="732" height="732" rx="10" fill="url(#boardFrameGrad)"/>
+    <rect x="-6" y="-6" width="712" height="712" fill="#04060A"/>
+
+    <!-- 64 Squares Grid (8x8) -->
+    <!-- Row 0 (Rank 8) -->
+    <rect x="0" y="0" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="87.5" y="0" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="175" y="0" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="262.5" y="0" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="350" y="0" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="437.5" y="0" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="525" y="0" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="612.5" y="0" width="87.5" height="87.5" fill="url(#sqDark)"/>
+
+    <!-- Row 1 (Rank 7) -->
+    <rect x="0" y="87.5" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="87.5" y="87.5" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="175" y="87.5" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="262.5" y="87.5" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="350" y="87.5" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="437.5" y="87.5" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="525" y="87.5" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="612.5" y="87.5" width="87.5" height="87.5" fill="url(#sqLight)"/>
+
+    <!-- Row 2 (Rank 6) -->
+    <rect x="0" y="175" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="87.5" y="175" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="175" y="175" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="262.5" y="175" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="350" y="175" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="437.5" y="175" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="525" y="175" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="612.5" y="175" width="87.5" height="87.5" fill="url(#sqDark)"/>
+
+    <!-- Row 3 (Rank 5) -->
+    <rect x="0" y="262.5" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="87.5" y="262.5" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="175" y="262.5" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="262.5" y="262.5" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="350" y="262.5" width="87.5" height="87.5" fill="#2D3B20"/> <!-- Highlight e5 Pawn -->
+    <rect x="437.5" y="262.5" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="525" y="262.5" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="612.5" y="262.5" width="87.5" height="87.5" fill="url(#sqLight)"/>
+
+    <!-- Row 4 (Rank 4) -->
+    <rect x="0" y="350" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="87.5" y="350" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="175" y="350" width="87.5" height="87.5" fill="#3D3818"/> <!-- Highlight c4 Bishop -->
+    <rect x="262.5" y="350" width="87.5" height="87.5" fill="#4A3C15"/> <!-- Highlight d4 Queen -->
+    <rect x="350" y="350" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="437.5" y="350" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="525" y="350" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="612.5" y="350" width="87.5" height="87.5" fill="url(#sqDark)"/>
+
+    <!-- Row 5 (Rank 3) -->
+    <rect x="0" y="437.5" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="87.5" y="437.5" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="175" y="437.5" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="262.5" y="437.5" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="350" y="437.5" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="437.5" y="437.5" width="87.5" height="87.5" fill="#3E2812"/> <!-- Highlight f3 Knight -->
+    <rect x="525" y="437.5" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="612.5" y="437.5" width="87.5" height="87.5" fill="url(#sqLight)"/>
+
+    <!-- Row 6 (Rank 2) -->
+    <rect x="0" y="525" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="87.5" y="525" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="175" y="525" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="262.5" y="525" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="350" y="525" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="437.5" y="525" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="525" y="525" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="612.5" y="525" width="87.5" height="87.5" fill="url(#sqDark)"/>
+
+    <!-- Row 7 (Rank 1) -->
+    <rect x="0" y="612.5" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="87.5" y="612.5" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="175" y="612.5" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="262.5" y="612.5" width="87.5" height="87.5" fill="#143438"/> <!-- Highlight d1 Rook -->
+    <rect x="350" y="612.5" width="87.5" height="87.5" fill="#3D2E14"/> <!-- Highlight e1 King -->
+    <rect x="437.5" y="612.5" width="87.5" height="87.5" fill="url(#sqLight)"/>
+    <rect x="525" y="612.5" width="87.5" height="87.5" fill="url(#sqDark)"/>
+    <rect x="612.5" y="612.5" width="87.5" height="87.5" fill="url(#sqLight)"/>
+
+    <!-- Board Files Labels a-h -->
+    <text x="43.75" y="722" class="font-code" font-size="16" font-weight="bold" fill="#00E5FF" text-anchor="middle">a</text>
+    <text x="131.25" y="722" class="font-code" font-size="16" font-weight="bold" fill="#00E5FF" text-anchor="middle">b</text>
+    <text x="218.75" y="722" class="font-code" font-size="16" font-weight="bold" fill="#00E5FF" text-anchor="middle">c</text>
+    <text x="306.25" y="722" class="font-code" font-size="16" font-weight="bold" fill="#00E5FF" text-anchor="middle">d</text>
+    <text x="393.75" y="722" class="font-code" font-size="16" font-weight="bold" fill="#00E5FF" text-anchor="middle">e</text>
+    <text x="481.25" y="722" class="font-code" font-size="16" font-weight="bold" fill="#00E5FF" text-anchor="middle">f</text>
+    <text x="568.75" y="722" class="font-code" font-size="16" font-weight="bold" fill="#00E5FF" text-anchor="middle">g</text>
+    <text x="656.25" y="722" class="font-code" font-size="16" font-weight="bold" fill="#00E5FF" text-anchor="middle">h</text>
+
+    <!-- 6 Tactical Endgame Pieces -->
+    <!-- 1. KING on e1 (350, 612.5) -->
+    <g class="piece-node" transform="translate(350, 612.5)">
+      <circle cx="43.75" cy="43.75" r="34" fill="rgba(212, 175, 55, 0.35)" stroke="#D4AF37" stroke-width="3" filter="url(#goldGlowFilter)"/>
+      <text x="43.75" y="57" font-size="44" text-anchor="middle" fill="#FFD700">♔</text>
+    </g>
+
+    <!-- 2. QUEEN on d4 (262.5, 350) -->
+    <g class="piece-node" transform="translate(262.5, 350)">
+      <circle cx="43.75" cy="43.75" r="34" fill="rgba(212, 175, 55, 0.35)" stroke="#D4AF37" stroke-width="3" filter="url(#goldGlowFilter)"/>
+      <text x="43.75" y="57" font-size="44" text-anchor="middle" fill="#FFD700">♕</text>
+    </g>
+
+    <!-- 3. BISHOP on c4 (175, 350) -->
+    <g class="piece-node" transform="translate(175, 350)">
+      <circle cx="43.75" cy="43.75" r="34" fill="rgba(0, 229, 255, 0.35)" stroke="#00E5FF" stroke-width="3" filter="url(#cyanGlowFilter)"/>
+      <text x="43.75" y="57" font-size="44" text-anchor="middle" fill="#00E5FF">♗</text>
+    </g>
+
+    <!-- 4. ROOK on d1 (262.5, 612.5) -->
+    <g class="piece-node" transform="translate(262.5, 612.5)">
+      <circle cx="43.75" cy="43.75" r="34" fill="rgba(0, 255, 157, 0.35)" stroke="#00FF9D" stroke-width="3" filter="url(#cyanGlowFilter)"/>
+      <text x="43.75" y="57" font-size="44" text-anchor="middle" fill="#00FF9D">♖</text>
+    </g>
+
+    <!-- 5. KNIGHT on f3 (437.5, 437.5) -->
+    <g class="piece-node" transform="translate(437.5, 437.5)">
+      <circle cx="43.75" cy="43.75" r="34" fill="rgba(255, 149, 0, 0.35)" stroke="#FF9500" stroke-width="3"/>
+      <text x="43.75" y="57" font-size="44" text-anchor="middle" fill="#FF9500">♘</text>
+    </g>
+
+    <!-- 6. PAWN on e5 (350, 262.5) -->
+    <g class="piece-node" transform="translate(350, 262.5)">
+      <circle cx="43.75" cy="43.75" r="34" fill="rgba(255, 255, 255, 0.35)" stroke="#FFFFFF" stroke-width="3"/>
+      <text x="43.75" y="57" font-size="44" text-anchor="middle" fill="#FFFFFF">♙</text>
+    </g>
+  </g>
+
+  <!-- Right Side: Navigation Index Legend Panel (X: 810, Y: 120, Width: 730) -->
+  <g transform="translate(810, 120)">
+    <rect width="730" height="732" rx="10" fill="rgba(8, 14, 24, 0.95)" stroke="rgba(212, 175, 55, 0.4)" stroke-width="2"/>
+
+    <text x="35" y="45" class="font-code" font-size="22" font-weight="900" fill="#D4AF37" letter-spacing="3">TACTICAL NAVIGATION INDEX</text>
+    <line x1="35" y1="60" x2="695" y2="60" stroke="rgba(0, 229, 255, 0.3)" stroke-width="1.5"/>
+
+    <!-- 6 Interactive Items -->
+    <!-- KING -->
+    <g transform="translate(35" y="85">
+      <text x="0" y="30" font-size="36" fill="#FFD700">♔</text>
+      <text x="50" y="24" class="font-code" font-size="18" font-weight="900" fill="#FFD700">KING [e1] → IDENTITY &amp; CORE PROFILE</text>
+      <text x="50" y="48" class="font-sans" font-size="14" fill="#8B949E">Maanas Sri Udbhav Maddula profile, background, &amp; core identity</text>
+    </g>
+
+    <!-- QUEEN -->
+    <g transform="translate(35" y="190">
+      <text x="0" y="30" font-size="36" fill="#FFD700">♕</text>
+      <text x="50" y="24" class="font-code" font-size="18" font-weight="900" fill="#FFD700">QUEEN [d4] → CHESS MASTERY</text>
+      <text x="50" y="48" class="font-sans" font-size="14" fill="#8B949E">10+ Yrs, 2x National Player, Team AP Captain, North Zone Leader, 2100+ Peak</text>
+    </g>
+
+    <!-- BISHOP -->
+    <g transform="translate(35" y="295">
+      <text x="0" y="30" font-size="36" fill="#00E5FF">♗</text>
+      <text x="50" y="24" class="font-code" font-size="18" font-weight="900" fill="#00E5FF">BISHOP [c4] → AI SECURITY RESEARCH</text>
+      <text x="50" y="48" class="font-sans" font-size="14" fill="#8B949E">PromptShield, Prompt Injection Research, AISEC CaseFiles</text>
+    </g>
+
+    <!-- ROOK -->
+    <g transform="translate(35" y="400">
+      <text x="0" y="30" font-size="36" fill="#00FF9D">♖</text>
+      <text x="50" y="24" class="font-code" font-size="18" font-weight="900" fill="#00FF9D">ROOK [d1] → DEFENSE / BLUE TEAM / SOC</text>
+      <text x="50" y="48" class="font-sans" font-size="14" fill="#8B949E">SOC L1, TryHackMe, KC7 Cyber, Wazuh, Wireshark, Log &amp; Phishing Analysis</text>
+    </g>
+
+    <!-- KNIGHT -->
+    <g transform="translate(35" y="505">
+      <text x="0" y="30" font-size="36" fill="#FF9500">♘</text>
+      <text x="50" y="24" class="font-code" font-size="18" font-weight="900" fill="#FF9500">KNIGHT [f3] → RUNNING &amp; ENDURANCE</text>
+      <text x="50" y="48" class="font-sans" font-size="14" fill="#8B949E">Sub-26-minute 5K PB, IAF Seekhon Marathon, Athletic Discipline</text>
+    </g>
+
+    <!-- PAWN -->
+    <g transform="translate(35" y="610">
+      <text x="0" y="30" font-size="36" fill="#FFFFFF">♙</text>
+      <text x="50" y="24" class="font-code" font-size="18" font-weight="900" fill="#FFFFFF">PAWN [e5] → GROWTH &amp; DISCIPLINE</text>
+      <text x="50" y="48" class="font-sans" font-size="14" fill="#8B949E">Pawn Mindset, 4x Voluntary Blood Donor, Environmental Impact Drives</text>
+    </g>
+  </g>
+</svg>
